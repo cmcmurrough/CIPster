@@ -76,6 +76,8 @@ int NotifyCommonPacketFormat( BufReader aCommand, BufWriter aReply )
 
 int NotifyConnectedCommonPacketFormat( BufReader aCommand, BufWriter aReply )
 {
+    std::printf("NotifyConnectedCommonPacketFormat\n");
+    
     CipCommonPacketFormatData cpfd;
 
     int result = cpfd.DeserializeCPFD( aCommand );
