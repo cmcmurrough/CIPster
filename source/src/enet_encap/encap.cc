@@ -475,13 +475,13 @@ int HandleReceivedExplictTcpData( int socket, BufReader aCommand, BufWriter aRep
         break;
 
     case kEncapsulationCommandSendUnitData:
-        std::printf("kEncapsulationCommandSendUnitData entry");
+        std::printf("kEncapsulationCommandSendUnitData entry\n");
         if( !encap.options && command.size() >= 6 )
         {
-            std::printf("kEncapsulationCommandSendUnitData >=6");
+            std::printf("kEncapsulationCommandSendUnitData >=6 \n");
             if( kSessionStatusValid == checkRegisteredSessions( encap.session_handle ) )
             {
-                std::printf("kEncapsulationCommandSendUnitData checkRegisteredSessions");
+                std::printf("kEncapsulationCommandSendUnitData checkRegisteredSessions \n");
                 result = NotifyConnectedCommonPacketFormat(
                             command + 6, // skip null interface handle + timeout value
                             reply
@@ -489,12 +489,12 @@ int HandleReceivedExplictTcpData( int socket, BufReader aCommand, BufWriter aRep
             }
             else    // received a packet with non registered session handle
             {
-                std::printf("kEncapsulationCommandSendUnitData else");
+                std::printf("kEncapsulationCommandSendUnitData else \n");
                 encap.status = kEncapsulationProtocolInvalidSessionHandle;
                 result = 0;
             }
         }
-        std::printf("kEncapsulationCommandSendUnitData break");
+        std::printf("kEncapsulationCommandSendUnitData break \n");
         break;
 
     default:
