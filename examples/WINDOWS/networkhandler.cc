@@ -622,9 +622,9 @@ EipStatus HandleDataOnTcpSocket( int socket )
         // we got the right amount of data
         packetz += 4;
 
-#if defined(DEBUG)
+//#if defined(DEBUG)
         dump( "rTCP", s_packet, num_read + 4 );
-#endif
+//#endif
 
         // TODO handle partial packets
         CIPSTER_TRACE_INFO( "Data received on tcp:\n" );
