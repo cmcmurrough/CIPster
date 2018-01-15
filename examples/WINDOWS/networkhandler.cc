@@ -23,6 +23,8 @@
 // values needed from the connection manager
 extern CipConn* g_active_connection_list;
 
+#define DEBUG true
+
 /** @brief The number of bytes used for the Ethernet message buffer on
  * the PC port. For different platforms it may make sense to
  * have more than one buffer.
@@ -622,9 +624,9 @@ EipStatus HandleDataOnTcpSocket( int socket )
         // we got the right amount of data
         packetz += 4;
 
-//#if defined(DEBUG)
+#if defined(DEBUG)
         dump( "rTCP", s_packet, num_read + 4 );
-//#endif
+#endif
 
         // TODO handle partial packets
         CIPSTER_TRACE_INFO( "Data received on tcp:\n" );
